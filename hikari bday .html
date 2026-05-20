@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hikari ✿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #fff5f8;
+            --pink: #ffb3d9;
+            --light-pink: #ffc0e0;
+            --pastel-pink: #ffd9e8;
+            --mint: #b8f3d8;
+            --light-mint: #d5f7e8;
+            --yellow: #fffacd;
+            --lavender: #e6d4f5;
+            --dark: #5a4a6e;
+            --white: #fffbfe;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--light-mint) 30%, var(--lavender) 100%);
+            color: var(--dark);
+            line-height: 1.8;
+            scroll-behavior: smooth;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative background elements */
+        body::before {
+            content: '✿ ✿ ✿';
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            font-size: 1.5rem;
+            color: var(--pink);
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '✿ ✿ ✿';
+            position: fixed;
+            bottom: 10%;
+            right: 5%;
+            font-size: 1.5rem;
+            color: var(--mint);
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Outer border/frame effect */
+        .page-frame {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 3px dashed var(--pink);
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: inset 0 0 20px rgba(255, 179, 217, 0.1);
+        }
+
+        .page-frame::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 20px;
+            width: 15px;
+            height: 15px;
+            background: var(--mint);
+            border-radius: 50%;
+        }
+
+        .page-frame::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 20px;
+            width: 15px;
+            height: 15px;
+            background: var(--pink);
+            border-radius: 50%;
+        }
+
+        main {
+            position: relative;
+            z-index: 5;
+            padding: 60px 20px 40px;
+        }
+
+        /* Header/Banner */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 4px solid var(--pink);
+            box-shadow: 0 8px 20px rgba(255, 179, 217, 0.15);
+            position: relative;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .header::before,
+        .header::after {
+            content: '★';
+            position: absolute;
+            top: -15px;
+            font-size: 1.5rem;
+            color: var(--yellow);
+        }
+
+        .header::before {
+            left: 20px;
+        }
+
+        .header::after {
+            right: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            background: linear-gradient(135deg, var(--pink), var(--mint), var(--lavender));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subheader {
+            font-size: 1.1rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        /* Navigation - Decorative Links */
+        nav {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 0 20px;
+        }
+
+        nav a {
+            display: inline-block;
+            background: white;
+            border: 2px solid var(--pink);
+            color: var(--dark);
+            padding: 0.6rem 1.2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 179, 217, 0.2);
+        }
+
+        nav a:hover {
+            background: var(--pink);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Content sections */
+        section {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 3px solid var(--light-pink);
+            box-shadow: 0 10px 30px rgba(255, 179, 217, 0.12);
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--mint);
+            border-radius: 50%;
+        }
+
+        section h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 2.3rem);
+            color: var(--pink);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink), var(--mint));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Content Cards */
+        .content-grid {
+            display: grid;
+            gap: 1.5rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(255, 192, 224, 0.3), rgba(184, 243, 216, 0.3));
+            padding: 1.8rem;
+            border-radius: 15px;
+            border: 2px dashed var(--pink);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 179, 217, 0.2);
+        }
+
+        .card h3 {
+            color: var(--dark);
+            font-family: 'Fredoka', sans-serif;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        /* Letter/Message */
+        .letter {
+            background: white;
+            border: 3px solid var(--pink);
+            padding: 2.5rem;
+            border-radius: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 12px 30px rgba(255, 179, 217, 0.15);
+            position: relative;
+        }
+
+        .letter::before {
+            content: '💌';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+        }
+
+        .letter p {
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+            line-height: 1.9;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 2rem;
+            font-family: 'Fredoka', sans-serif;
+            color: var(--pink);
+            font-weight: 600;
+        }
+
+        /* Gallery/Image showcase */
+        .image-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .image-card {
+            background: white;
+            border: 3px solid var(--mint);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: rotate(3deg) scale(1.05);
+            box-shadow: 0 12px 25px rgba(168, 240, 216, 0.2);
+        }
+
+        /* Floating singing element */
+        .floating-singer {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background: var(--pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: float 3s ease-in-out infinite, bounce 2s ease-in-out infinite;
+            z-index: 100;
+            box-shadow: 0 10px 25px rgba(255, 179, 217, 0.4);
+            border: 3px solid white;
+        }
+
+        .floating-singer::before {
+            content: '♪';
+            position: absolute;
+            font-size: 1.5rem;
+            color: white;
+            top: 10px;
+            left: 10px;
+            animation: musicFloat 2s ease-in-out infinite;
+        }
+
+        .floating-singer::after {
+            content: '♫';
+            position: absolute;
+            font-size: 1.5rem;
+            color: white;
+            bottom: 10px;
+            right: 10px;
+            animation: musicFloat 2s ease-in-out infinite 0.3s;
+        }
+
+        /* Text decorations */
+        .decorative-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin: 1.5rem 0;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        /* Decorative divider */
+        .divider {
+            text-align: center;
+            margin: 2.5rem 0;
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes musicFloat {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .page-frame {
+                top: 5px;
+                left: 5px;
+                right: 5px;
+                bottom: 5px;
+            }
+
+            main {
+                padding: 50px 15px 30px;
+            }
+
+            section {
+                padding: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .floating-singer {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            nav {
+                gap: 0.6rem;
+                padding: 0 10px;
+            }
+
+            nav a {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-frame"></div>
+
+    <main>
+        <!-- Header -->
+        <div class="header">
+            <h1>✿ Happy Birthday Hikari ✿</h1>
+            <p class="subheader">June 18 🎂💙</p>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <a href="#about">About You</a>
+            <a href="#story">Our Story</a>
+            <a href="#wishes">Wishes</a>
+            <a href="#dates">Future Dates</a>
+            <a href="#letter">Letter</a>
+        </nav>
+
+        <div class="divider">✿ ~ ✿ ~ ✿</div>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About My Pretty Girl 🌸</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>💙 Your Colors</h3>
+                    <p>Blue and grey—soft, calming, and perfectly you. These colors make me think of clear skies and peaceful moments. You are both.</p>
+                </div>
+                <div class="card">
+                    <h3>🎵 Your Song</h3>
+                    <p>"All That Matters" is your favorite, and now every time I hear it, I think of you. The lyrics, the melody, everything about it feels like you.</p>
+                </div>
+                <div class="card">
+                    <h3>🎬 Horror Lover</h3>
+                    <p>You love horror movies and the thrill they bring. I love that you're into something so cool and intense. It makes you even more interesting to me.</p>
+                </div>
+                <div class="card">
+                    <h3>🌺 Beautiful Flowers</h3>
+                    <p>Hibiscus and lily of the valley—both delicate and gorgeous. Just like you. ✿</p>
+                </div>
+                <div class="card">
+                    <h3>👯 Amazing Family</h3>
+                    <p>You have 4 wonderful siblings—2 amazing elder brothers, 1 incredible elder sister, and 1 adorable younger sister. Your family sounds as wonderful as you are.</p>
+                </div>
+                <div class="card">
+                    <h3>🥲 A Little Note</h3>
+                    <p>I know you're allergic to cabbages and tea leaves. I'll remember this forever. No cabbage, only love. 💕</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider">✿ ♫ ✿ ♫ ✿</div>
+
+        <!-- Story Section -->
+        <section id="story">
+            <h2>Our Story So Far 📖</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Last Week ✨</h3>
+                    <p>A chance encounter online that felt like destiny. One moment that changed everything. Meeting you wasn't luck—it was the best thing that could have happened to me.</p>
+                </div>
+                <div class="card">
+                    <h3>First Conversations 💬</h3>
+                    <p>Hours that felt like minutes. Learning about you, your dreams, your family, what makes you laugh. Every word from you made me fall for you a little more.</p>
+                </div>
+                <div class="card">
+                    <h3>Your Laugh 💕</h3>
+                    <p>I could listen to it forever. Even through a screen, your laugh makes my day better. It's become my favorite sound in the world.</p>
+                </div>
+                <div class="card">
+                    <h3>Your Birthday 🎉</h3>
+                    <p>June 18 is special now. Today, I celebrate YOU. The way you are, the person you're becoming, and the beautiful connection we've already started building.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider">✿ ♪ ✿ ♪ ✿</div>
+
+        <!-- Wishes Section -->
+        <section id="wishes">
+            <h2>Birthday Wishes 🎂</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <p>May this year bring you joy, adventure, and all the beautiful moments you deserve. 💙</p>
+                </div>
+                <div class="card">
+                    <p>I hope your birthday is filled with laughter, love, and everything that makes you happy. You deserve the world. 🌸</p>
+                </div>
+                <div class="card">
+                    <p>Thank you for being exactly who you are. For being authentic, kind, and absolutely wonderful. 💕</p>
+                </div>
+                <div class="card">
+                    <p>Here's to you, Hikari. May all your dreams come true. I'm excited to be part of your journey. ✨</p>
+                </div>
+            </div>
+            <p class="decorative-text">~ singing in the background all day for you ~</p>
+        </section>
+
+        <div class="divider">✿ ♫ ✿ ♫ ✿</div>
+
+        <!-- Future Dates Section -->
+        <section id="dates">
+            <h2>Things I Want To Do With You 💫</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>🎬 Horror Movie Marathon</h3>
+                    <p>Sync up a scary movie and watch it together. I want to see you jump, scream, laugh. Horror nights with you sound perfect.</p>
+                </div>
+                <div class="card">
+                    <h3>🎵 Listen to "All That Matters"</h3>
+                    <p>Together, on repeat if you want. And you can tell me why it means so much to you. I want to love it because you do.</p>
+                </div>
+                <div class="card">
+                    <h3>☕ Morning Coffee Talks</h3>
+                    <p>Start our days together. No agenda, just you, me, and conversations. (No tea for you though! 😊)</p>
+                </div>
+                <div class="card">
+                    <h3>🌺 Flower Garden Dates</h3>
+                    <p>Explore hibiscus and lily of the valley gardens together. Virtual or in person, I want to share that with you.</p>
+                </div>
+                <div class="card">
+                    <h3>🎮 Games & Laughter</h3>
+                    <p>Find games we can play together. I want to hear you laugh, get excited, and just enjoy moments that are ours.</p>
+                </div>
+                <div class="card">
+                    <h3>✈️ Meeting You In Person</h3>
+                    <p>The biggest dream. To finally sit across from you, hug you, meet your amazing siblings, and experience real life with you. 💙</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider">✿ ♫ ✿ ♫ ✿</div>
+
+        <!-- Letter Section -->
+        <section id="letter">
+            <div class="letter">
+                <h2 style="text-align: center; border: none; padding: 0;">A Letter to You 💌</h2>
+                <p>Hey Hikari,</p>
+                <p>I still can't believe this is real. A week ago, you didn't exist in my world. Now, I can't imagine my days without you in them.</p>
+                <p>You're so special. Your laugh, your authenticity, the way you listen, the way you care—everything about you makes my heart feel full. You make distance feel small because what we have feels so real, so genuine.</p>
+                <p>I love learning about you. Your family, your dreams, your favorite song, the horror movies you love, your beautiful appreciation for blue, grey, hibiscus, and lily of the valley. Every detail about you is becoming precious to me.</p>
+                <p>Thank you for taking a chance on someone you met online. Thank you for being yourself. Thank you for making this week absolutely unforgettable.</p>
+               
